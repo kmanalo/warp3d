@@ -26,7 +26,7 @@ make clean
 
 CC=${MCC} CXX=${MCX} F77=${MFT} CFLAGS=${CFLAGS} CXXFLAGS=${CXXFLAGS} FFLAGS=${FFLAGS} LDFLAGS="-lpthread -lm" ./configure --prefix=${WARP3D_HOME}/linux_packages --with-openmp --with-blas --with-lapack --with-blas-lib-dirs=${MKLROOT}/lib/intel64 --with-blas-libs="mkl_intel_lp64 mkl_core mkl_intel_sequential" --with-lapack-lib-dirs=${MKLROOT}/lib/intel64 --with-lapack-libs="mkl_intel_lp64 mkl_core mkl_intel_sequential"
 cd FEI_mv/fei-hypre
-${MCC} -O0 -openmp -D_GNU_SOURCE -I${MKLROOT}/include -mt_mpi -DHAVE_CONFIG_H -DHAVE_SUPERLU -DBOOL_NOT_SUPPORTED -DHAVE_MLI -I../.. -I/home/mark/warp3d/warp3d-dev/linux_packages/source/hypre-2.9.0b/src/FEI_mv/fei-base -I. -I./../.. -I./../../IJ_mv -I./../../utilities -I./../../multivector -I./../../krylov -I./../../parcsr_mv -I./../../parcsr_ls -I./../../seq_mv -I./../../distributed_matrix -I./../../distributed_ls -I./../fei-base -I./../SuperLU/SRC   -I../ml/src/Include -c HYPRE_LSI_schwarz.c
+${MCC} -O0 -openmp -D_GNU_SOURCE -I${MKLROOT}/include -mt_mpi -DHAVE_CONFIG_H -DHAVE_SUPERLU -DBOOL_NOT_SUPPORTED -DHAVE_MLI -I../.. -I${WARP3D_HOME}/linux_packages/source/hypre-2.9.0b/src/FEI_mv/fei-base -I. -I./../.. -I./../../IJ_mv -I./../../utilities -I./../../multivector -I./../../krylov -I./../../parcsr_mv -I./../../parcsr_ls -I./../../seq_mv -I./../../distributed_matrix -I./../../distributed_ls -I./../fei-base -I./../SuperLU/SRC   -I../ml/src/Include -c HYPRE_LSI_schwarz.c
 cd ../..
 cd blas
 make
